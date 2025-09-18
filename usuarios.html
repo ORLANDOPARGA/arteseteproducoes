@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Página do Usuário</title>
+    <script>
+        // Função para pegar o parâmetro "nome" da URL
+        function pegarNomeUsuario() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get("nome") || "Visitante";
+        }
+
+        // Quando a página carregar, troca o conteúdo
+        window.onload = function() {
+            const nome = pegarNomeUsuario();
+            document.getElementById("saudacao").textContent = "Olá, " + nome + "!";
+        }
+    </script>
 </head>
 <body>
-    <h1>Olá, Orlando!</h1>
+    <h1 id="saudacao">Olá, Visitante!</h1>
     <p>Seja bem-vindo à sua página personalizada.</p>
 
     <a href="index.html">Voltar para Homepage</a>
